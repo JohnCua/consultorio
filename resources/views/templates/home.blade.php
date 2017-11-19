@@ -239,17 +239,12 @@
                  @if ($rol === 1)
                   <li><a class="waves-effect waves-sbx" href="{{route('Analisis.index')}}">Listado de analisis</a></li>
                    <li><a class="waves-effect waves-sbx" href="{{route('Analisis.create')}}">Nuevo Analisis</a></li>
-
-
                    @elseif ($rol=== 2)
                    <li><a class="waves-effect waves-sbx" href="{{route('Analisis.index')}}">Listado de analisis</a></li>
                     <li><a class="waves-effect waves-sbx" href="{{route('Analisis.create')}}">Nuevo Analisis</a></li>
                    @elseif ($rol=== 3)
-                   <li><a class="waves-effect waves-sbx" href="{{route('Analisis.index')}}">Listado de analisis</a></li>
-                    <li><a class="waves-effect waves-sbx" href="{{route('Analisis.create')}}">Nuevo Analisis</a></li>
                    @elseif ($rol=== 4)
-                   <li><a class="waves-effect waves-sbx" href="{{route('Analisis.index')}}">Listado de analisis</a></li>
-                    <li><a class="waves-effect waves-sbx" href="{{route('Analisis.create')}}">Nuevo Analisis</a></li>
+
                    @endif
 
 
