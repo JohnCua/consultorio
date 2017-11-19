@@ -24,5 +24,5 @@ Route::resource('/Usuario','UsuarioController');
 Route::resource('/Cuarto','CuartoController');
 Route::resource('/Doctor','DoctorController');
 Route::resource('/Paciente','PacienteController');
-Route::resource('/Analisis','AnalisisController');
-Route::resource('/Prueba','PruebaController');  
+Route::resource('/Analisis','AnalisiController');
+Route::resource('/Prueba','PruebaController');

@@ -20,14 +20,22 @@
             {{ method_field('POST') }}
               <div class="row">
                 <div class="input-field col s6">
-                  <i class="material-icons prefix">person</i>
+                  <i class="material-icons prefix">add_to_queue</i>
                   <input id="icon_prefix" type="text"  name="nombre" class="required">
                   <label for="icon_prefix">Nombre</label>
                 </div>
+
                 <div class="input-field col s6">
-                  <i class="material-icons prefix">person_pin</i>
-                  <input id="edad" type="text"  name="edad" class="cnumber required"  >
-                  <label for="password">Edad</label>
+                  <i class="material-icons prefix">description</i>
+                  <input id="desc" type="text"  name="desc" >
+                  <label for="icon_prefix">Descripcion</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">fiber_manual_record</i>
+                  <input id="costo" type="text"  name="costo" class="cnumber required"  >
+                  <label for="icon_prefix">Costo</label>
                 </div>
                 </div>
 
@@ -35,29 +43,45 @@
                   <div class="input-field col s6">
                       <i class="material-icons prefix">date_range</i>
                       <input name="fechai" type="text" class="datepicker required">
-                      <label for="dateone">Fecha ingreso</label>
+                      <label for="dateone">Fecha Analisis</label>
                   </div>
                   <div class="input-field col s6">
-                      <i class="material-icons prefix">date_range</i>
-                      <input name="fechaf" type="text" class="datepicker ">
-                      <label for="dateone">Fecha egreso</label>
+                    <i class="material-icons prefix">library_add</i>
+                    <input id="rest" type="text"  name="rest" >
+                    <label for="icon_prefix">Resultado</label>
                   </div>
 
                 </div>
                 <div class="row">
                   <div class="input-field col s6"  >
-                    <i class="material-icons prefix">domain</i>
-                    <select  name="cuarto" class="required">
-                      <option value="" disabled selected>Cuarto</option>
-                      @foreach ($cuartos as $cuarto)
-                      @if ($cuarto->activo == 1)
-                       <option value="{{$cuarto->id}}">No. {{$cuarto->numero}}, Piso {{$cuarto->piso}} </option>
+                    <i class="material-icons prefix">group</i>
+                    <select multiple name="pacientes[]" class="required">
+                      <option value="" disabled selected>Pacientes</option>
+                      @foreach ($pacientes as $paciente)
+                      @if ($paciente->activo == 1)
+                       <option value="{{$paciente->id}}">{{$paciente->nombre}} </option>
                        @else
 
                        @endif
                       @endforeach
                     </select>
-                      <label>Seleccion de Cuarto</label>
+                      <label>Seleccion de Pacientes</label>
+                  </div>
+
+
+                  <div class="input-field col s6"  >
+                    <i class="material-icons prefix">person</i>
+                    <select  name="doc" class="required">
+                      <option value="" disabled selected>Doctores</option>
+                      @foreach ($doctores as $doctor)
+                      @if ($doctor->activo == 1)
+                       <option value="{{$doctor->id}}">{{$doctor->nombre}} </option>
+                       @else
+
+                       @endif
+                      @endforeach
+                    </select>
+                      <label>Seleccion de Doctor</label>
                   </div>
                 </div>
 
