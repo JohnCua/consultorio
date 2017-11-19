@@ -23,7 +23,7 @@
       * {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
 
       .waves-effect.waves-sbx .waves-ripple{background-color: rgba(2, 86, 156, 1);}
-      body{display: flex;min-height: 100vh;flex-direction: column;background: url({{URL::asset('images/cover.jpg')}}) no-repeat fixed;background-size: cover;background-position: 50%;-webkit-font-smoothing: antialiased;font-smoothing: antialiased;}
+      body{display: flex;min-height: 100vh;flex-direction: column;background: url({{URL::asset('images/cover9.jpg')}}) no-repeat fixed;background-size: cover;background-position: 50%;-webkit-font-smoothing: antialiased;font-smoothing: antialiased;}
       .card{background-color:rgba(255, 255, 255, 0.87);}
       ::-webkit-input-placeholder {color: #302c2c;}
 

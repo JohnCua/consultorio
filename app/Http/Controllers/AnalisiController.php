@@ -20,6 +20,11 @@ class AnalisiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
     public function index()
     {
       $pruebas = prueba::join('analisis', 'pruebas.idana', '=', 'analisis.id')

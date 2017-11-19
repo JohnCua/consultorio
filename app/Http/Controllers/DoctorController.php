@@ -18,6 +18,10 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
     public function index()
     {
       $doctores = doctor::where('activo','=',1)

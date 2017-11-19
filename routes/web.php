@@ -19,10 +19,24 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware(['admin'])->group(function () {
+  Route::resource('/Usuario','UsuarioController');
+  Route::resource('/Cuarto','CuartoController');
+  Route::resource('/Doctor','DoctorController');
+  Route::resource('/Paciente','PacienteController');
+  Route::resource('/Analisis','AnalisiController');
 
-Route::resource('/Usuario','UsuarioController');
-Route::resource('/Cuarto','CuartoController');
-Route::resource('/Doctor','DoctorController');
-Route::resource('/Paciente','PacienteController');
-Route::resource('/Analisis','AnalisiController');
-Route::resource('/Prueba','PruebaController');
+});
+
+Route::middleware(['doc'])->group(function () {
+  Route::resource('/Cuarto','CuartoController');
+  Route::resource('/Doctor','DoctorController');
+  Route::resource('/Paciente','PacienteController');
+  Route::resource('/Analisis','AnalisiController');
+});
+
+Route::middleware(['secre'])->group(function () {
+  Route::resource('/Cuarto','CuartoController');
+  Route::resource('/Doctor','DoctorController');
+  Route::resource('/Paciente','PacienteController');
+});
