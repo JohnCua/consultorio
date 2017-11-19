@@ -35,7 +35,7 @@
                 <td>{{$prueba->fecha}}</td>
                 <td>{{$prueba->res}}</td>
                 <td>
-                <a class="tooltipped  btn-floating btn-small waves-effect waves-light light-blue darken-4" data-position="bottom" href="{{route('Prueba.edit',$prueba->id)}}" data-delay="50" data-tooltip="Editar"><i class="material-icons">edit</i></a>
+                <a class="tooltipped  btn-floating btn-small waves-effect waves-light light-blue darken-4" data-position="bottom" href="{{route('Analisis.edit',$prueba->idprue)}}" data-delay="50" data-tooltip="Editar"><i class="material-icons">edit</i></a>
                 </td>
               </tr>
             @endforeach

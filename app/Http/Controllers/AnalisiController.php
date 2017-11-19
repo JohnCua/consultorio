@@ -30,6 +30,7 @@ class AnalisiController extends Controller
                   'analisis.nombre as a',
                   'pruebas.resultado as res',
                   'pruebas.fecha as fecha',
+                  'pruebas.id as idprue',
                   'pacientes.nombre as paci'
                   )
           ->get();
@@ -123,9 +124,10 @@ class AnalisiController extends Controller
      * @param  \App\analisi  $analisi
      * @return \Illuminate\Http\Response
      */
-    public function edit(analisi $analisi)
+    public function edit($analisi)
     {
-        //
+        $prueba = prueba::findOrFail($analisi);
+        return view('analisis.edit',compact('prueba'));
     }
 
     /**
@@ -135,9 +137,34 @@ class AnalisiController extends Controller
      * @param  \App\analisi  $analisi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, analisi $analisi)
+    public function update(Request $request,  $analisi)
     {
-        //
+      $mes="Ingreso";
+      DB::beginTransaction();
+       try {
+             $prueba=prueba::findOrFail($analisi);
+             $prueba->resultado=$request->rest;
+             $prueba->save();
+
+              DB::commit();
+
+              $mes="Ingreso correcto";
+             }
+             catch (\Exception $e)
+             {
+                 DB::rollback();
+                 $mes=$e->getMessage();
+             }
+             if ($mes!="Ingreso correcto")
+              {
+               alert()->error(''.$mes.'', 'Error');
+               return redirect('Analisis');
+             }
+             else
+             {
+               alert()-> success(''.$mes.'','Analisis');
+              return redirect('Analisis');
+            }
     }
 
     /**
